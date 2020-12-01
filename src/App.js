@@ -3,9 +3,8 @@ import axios from 'axios';
 import Table from './Table';
 const $marketCapNumber = 100;
 
-const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com'
 const endpoint = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${$marketCapNumber}&tsym=USD&?apikey=6ccfcc7c18aa8c9a843472090f99f174349d955a89cbfc6a69b0f78f3ace71c5`;
-const i = 100;
+
 
 console.log("Here is the data: " + endpoint)
 
@@ -26,7 +25,6 @@ class App extends Component {
     const data = response.data;
     console.log(data.Data)
     this.setState({
-      // coins: data.Data[0].CoinInfo.name,
       coins: data.Data
     })
     
@@ -41,11 +39,6 @@ class App extends Component {
     return (
       <div>
        <Table coins={this.state.coins}/>
-      
-
-    
-    
-
     </div>
 
     );
