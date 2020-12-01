@@ -1,8 +1,12 @@
 import React from 'react';
+import logo from './PNG120.png'
 
 const Table = ({coins}) => {
    
   return (
+      <div>
+
+
     <table>
       <thead>
         <tr>
@@ -29,6 +33,9 @@ const Table = ({coins}) => {
          }) : <tr><td colSpan="5">Loading...</td></tr> }
       </tbody>
     </table>
+    <img src={logo} alt="logo"/>
+    </div>
+    
   );
 }
 
