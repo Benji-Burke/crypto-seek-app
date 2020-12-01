@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react';
+import axios from 'axios';
+import Table from './Table';
+const $marketCapNumber = 100;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com'
+const endpoint = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${$marketCapNumber}&tsym=USD&?apikey=6ccfcc7c18aa8c9a843472090f99f174349d955a89cbfc6a69b0f78f3ace71c5`;
+const i = 100;
+
+console.log("Here is the data: " + endpoint)
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rank: 0,
+      coins: [],
+      coinsName: []
+
+    };
+  }
+
+  async getData() {
+    const response = await axios.get(endpoint)
+    const data = response.data;
+    console.log(data.Data)
+    this.setState({
+      // coins: data.Data[0].CoinInfo.name,
+      coins: data.Data
+    })
+    
+  }
+
+  async componentDidMount() {
+    await this.getData();
+  }
+
+  render() {
+
+    return (
+      <div>
+       <Table coins={this.state.coins}/>
+      
+
+    
+    
+
     </div>
-  );
+
+    );
+  }
 }
 
 export default App;
