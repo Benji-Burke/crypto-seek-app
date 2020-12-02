@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './PNG120.png'
+import logo from '../PNG120.png'
 
 const Table = ({coins}) => {
 

@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import axios from 'axios';
-import Table from './Table';
+import Table from './Components/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from './Components/Navbar';
 const $marketCapNumber = 100;
 
 const endpoint = `https://min-api.cryptocompare.com/data/top/mktcapfull?limit=${$marketCapNumber}&tsym=USD&?apikey=6ccfcc7c18aa8c9a843472090f99f174349d955a89cbfc6a69b0f78f3ace71c5`;
@@ -39,6 +40,7 @@ class App extends Component {
 
     return (
       <div>
+      <Navbar/>
        <Table coins={this.state.coins}/>
     </div>
 
