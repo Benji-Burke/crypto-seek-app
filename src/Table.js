@@ -12,7 +12,7 @@ const Table = ({coins}) => {
       <div>
 
 
-    <table>
+    <table className="table">
       <thead>
         <tr>
           <th>Id</th>
