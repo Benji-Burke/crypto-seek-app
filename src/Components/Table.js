@@ -20,6 +20,7 @@ const Table = ({coins}) => {
           <th>Sym</th>
           <th>MarketCap</th>
           <th>Price</th>
+          <th>24Hr</th>
         </tr>
       </thead>
       <tbody>
@@ -32,6 +33,7 @@ const Table = ({coins}) => {
               <td>{coins[key].CoinInfo.Name}</td>
               <td>{ coins[key].DISPLAY.USD.MKTCAP }</td>
               <td>{ coins[key].DISPLAY.USD.PRICE }</td>
+              <td>{ coins[key].DISPLAY.USD.CHANGE24HOUR }</td>
 
             </tr>
           )
